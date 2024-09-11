@@ -1,0 +1,343 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+}
+
+img { 
+    max-width: 100%;
+    }
+
+.container{
+    max-width: 1140px; /*максимальная ширина 1110пх, для мобильного приложения*/
+    margin-left: auto; /*это значения автоматического выравнивания слева и справа, работают для блочной модели.*/
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.none {
+    display: none !important; /*полностью скрывает элемент со страницы*/
+} /*говорит браузеру, что свойство важнее, что ниже находится*/
+
+/*header*/
+.header {
+    position: relative; /* Есть какой то элемент и я хочу выдернуть его из контекста и поставить его в любой угол, то используем свойство стиля */
+    /*Определяем модель flex-box для блока .header*/
+    display: flex; 
+    flex-direction: column; /* Выстраиваем flex-элементы в колонку, основная ось - Y*/
+    justify-content: center; /* Выравнивание по основной оси */
+    align-items: center; /* Выравнивание по поперечной оси */
+    
+    width: 100%;
+    height: 100vh;
+    /*position: absolute; является родителем для элемента, у которого есть position absolute*/ 
+
+    /* background-color: #556893; */
+    /* background-image: url("./image/header/nout.jpg");   */
+    background-size: cover; /*размер данного фонового изображения, cover-заполнит изображение на 100% по экрану*/
+    background-repeat: no-repeat;
+    background-position: center;
+    background-blend-mode: multiply; /*Свойство CSS задает, как фоновые изображения элемента должны сочетаться друг с другом и с цветом фона элемента*/
+}
+
+.header-title {
+    margin: 0;
+    margin-bottom: 25px; /*отступ вниз*/
+    font-weight: 700; /*толщина шрифта*/
+    font-size: 56px; /*размер шрифта*/
+    line-height: 130%; /*высота строки, можно писать 1.3*/
+    text-align: center; /*Выравнивание по центру*/
+    color: #ffffff;
+}
+/* Ctrl/ быстрое комментирование строчки */
+.header-subtitle {
+    margin: 0;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 150%;
+
+    text-align: center;
+    letter-spacing: 0.2em; /*расстояние между буквами*/
+    text-transform: uppercase; /*Верхний регистр*/
+    color: #ffffff;
+} 
+
+.header-arrow {
+    width: 48px;
+    height: 48px;
+
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    transform: translate(-50%, 0);
+}
+
+/* portfolio */
+.portfolio {
+    padding-top: 80px;
+    padding-bottom: 115px;
+    max-width: 100%;
+    background-color: rgb(205, 204, 204);
+}
+
+.portfolio-header {
+    margin: 0;
+    margin-bottom: 70px;
+    font-weight: 700;
+    font-size: 46px;
+    line-height: 130%;
+    text-align: center;
+    color: #000;
+}
+
+.portfolio-cards-wrapper {
+    display: flex;
+    flex-wrap: wrap; /*у нас есть перенос на следующую строчку*/
+    justify-content: space-between;
+}
+
+/* card */
+
+.card {
+    margin-bottom: 30px;
+    display: inline-flex; /* Несколько блоков подряд с таким свойством будут размещены в одну линию. Также в линию с блоками добавляется и текст. */
+    max-width: 540px;
+    
+    box-shadow: 0px 10px 40px rgba(0,0,0,0.18); /*Добавляет тень карточкам*/
+    transition: transform 0.2s ease-in; /*плавность*/
+    margin-inline: 6px;
+    
+    background: rgba( 255, 255, 255, 0.25 );
+    /* box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 ); */
+    backdrop-filter: blur( 2px );
+    -webkit-backdrop-filter: blur( 2px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    
+}
+
+.card:hover {
+    transform: translateY(-15px); /*перемещение карточки вверх */
+}
+
+
+.card-link {
+    text-decoration: none;
+    color: #000;
+    padding: 20px;
+    transition: color 0.2s ease-in;
+}
+
+.card-link:hover{
+    color: #677BEB;
+    display: block;
+}
+
+
+/* Добавляем селектор, который выбирает последнюю карточку */
+.card:last-child, .card:nth-last-child(2) { /*последний тег с классом кард в рамках контейнера в котором он находится*/
+    margin-bottom: 0;
+}
+/* Выбирает с конца, то есть предпоследнюю */
+/*последний тег с классом кард в рамках контейнера в котором он находится*/
+
+
+.card-img {
+    margin-bottom: 20px;
+    width: 500px;
+    object-fit: fill;
+
+    transition: all 0.6s;
+    /* opacity: 0.5;  */
+}
+
+
+
+.card-img:hover {
+    opacity: 1;
+    filter: brightness(60%);       
+}
+
+
+.card-title {
+    margin: 0;
+    margin-bottom: 13px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 130%;
+}
+.card p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 130%;
+}
+
+/* footer */
+
+.footer {
+    padding-top: 45px;
+    padding-bottom: 130px;
+    background: #677BEB;
+    color: white;
+}
+
+.footer-row {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between; /*выравнивание по основной оси, space-between - как элементы будут выравниваться*/
+}
+
+.footer-col {
+    max-width: 350px;
+    flex-grow: 1;
+}
+
+.footer-copyright {
+    color: white;
+    line-height: 1.3;
+}
+
+.footer-copyright-name {
+    font-weight: 700;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.footer-copyright p {
+    margin: 0;
+    margin-bottom: 13px;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+
+.footer-icons p {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.3;
+    color: white;
+}
+
+.footer-icons-row {
+    display: flex;
+    align-items: center;
+    
+}
+.footer-icons-row > * + * { /*звездочка-любой селектор. Мы выбираем все теги. Знак больше говорит, что иконка находится на первом уровне вложенности, первый уровень-ссылки*/
+    margin-left: 30px;
+}
+
+
+.footer-button {
+    display: inline-block;
+    padding-left: 30px;
+    padding-right: 30px;
+    height: 50px;
+
+    border: 3px solid #fff;
+    border-radius: 50px;
+    
+    color: white;
+    line-height: 46px;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    transition: all 0.2s ease-in;
+}
+
+.footer-button:hover {
+    background-color: white;
+    color: #677BEB; 
+}
+
+.footer-contacts p {
+    margin: 15px 0;
+    font-size: 16px;
+    line-height: 1.3;
+    color: white;
+}
+
+/* Project*/
+
+.project {
+    padding-bottom: 120px;
+    text-align: center;
+    color: black;
+}
+
+.project-header {
+    margin-bottom: 40px;
+    font-weight: bold;
+    font-size: 46px;
+    line-height: 1.3;
+    background-color: #F2F2F2;
+}
+
+.project-img {
+    margin-bottom: 70px;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 40px;
+    float: left;
+    margin-right: 20px;
+}
+
+.project-img p { 
+    margin-top: 0;
+}
+
+.project-description {
+    margin: 0 auto 60px;
+    max-width: 730px;
+}
+
+.project-description p {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.project-button-back {
+    display: inline-block;
+    padding-left: 30px;
+    padding-right: 30px;
+    height: 60px;
+
+    border: 3px solid #677BEB;
+    border-radius: 50px;
+    
+    color: #677BEB;
+    line-height: 56px;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    transition: all 0.2s ease-in;
+}
+
+.project-button-back:hover {
+    background-color: #677BEB;
+    color: white;
+}
+
+
+.block {
+    width: 800px;
+    height: 400px;
+    background-color: blueviolet;
+}
+/*Когда размер экрана меньше чем 800пх, то код будет работать*/
